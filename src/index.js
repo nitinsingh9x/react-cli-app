@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {HashRouter, Route, Switch} from 'react-router-dom';
-import { Provider } from 'react-redux';
 //PrimeReact Style
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
