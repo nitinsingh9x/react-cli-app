@@ -4,21 +4,42 @@ import {Container} from 'reactstrap';
 import Header from './views/shared/header/Header';
 import Sidebar from './views/shared/sidebar/Sidebar';
 import Breadcrumb from './views/shared/breadcrumb/Breadcrumb';
-
+import { NavbarToggler } from 'reactstrap';
 import Dashboard from './views/dashboard/Dashboard';
 import Administration from './views/administration/Administration';
 import AddNewRule from './views/rule-authoring/AddNewRule/AddNewRule';
 import UpdateExistingRule from './views/rule-authoring/UpdateExistingRule/UpdateExistingRule';
 
 class App extends Component {
+  sidebarToggle(e) {
+    e.preventDefault();
+    document.body.classList.toggle('sidebar-hidden');
+    var element = document.getElementById("top-toggler");
+    element.classList.toggle("noDisplay");
+  }
+
+  mobileSidebarToggle(e) {
+    e.preventDefault();
+    document.body.classList.toggle('sidebar-mobile-show');
+  }
   render() {
     return (
       <div className="app">
         <Header />
         <div className="app-body">
           <Sidebar {...this.props}/>
-          <main className="main">
-          <div className="cboa-top-breadcrumb">Credit Bridge Rule Authoring</div>
+          <div className="main">
+          <div className="breadcrumb-toggler navbar-dark">
+          <NavbarToggler className="d-lg-none" onClick={this.mobileSidebarToggle}>
+          <span className="navbar-dark navbar-toggler-icon "></span>
+          </NavbarToggler>
+          <div id="top-toggler" className="noDisplay">
+            <NavbarToggler className="d-md-down-none mr-auto" onClick={this.sidebarToggle}>
+            <span className="custom-toggler navbar-toggler-icon"></span>
+            </NavbarToggler></div>
+            <div className="cboa-top-breadcrumb">Credit Bridge Rule Authoring</div>
+          </div>
+          
             <Breadcrumb />
             <Container fluid>
               <Switch>
@@ -29,7 +50,7 @@ class App extends Component {
                 <Redirect from="/" to="/dashboard"/>
               </Switch>
             </Container>
-          </main>
+          </div>
         </div>
       </div>
     );
