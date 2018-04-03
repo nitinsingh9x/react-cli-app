@@ -5,3 +5,24 @@
 .wdth-99{
   width: 99% !important;
 }
+
+.breadcrumb-toggler{
+  display: -webkit-box;
+}
+
+.noDisplay{
+  display: none;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(255,102,203);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: black;
+}
+
+#top-toggler{
+  background-color: #c2bfb7;
+}
+
